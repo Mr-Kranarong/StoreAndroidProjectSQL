@@ -33,4 +33,10 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.koushikdutta.ion:ion:2.2.1'
+    implementation 'com.muddzdev:styleabletoast:2.2.2'
+    implementation 'com.github.dmytrodanylyk.android-process-button:library:1.0.4'
+    implementation 'com.facebook.shimmer:shimmer:0.4.0'
+    implementation 'com.github.iammert:ScalingLayout:1.2.1'
+    implementation 'me.grantland:autofittextview:0.2.1'
+    implementation 'net.idik:slimadapter:2.1.2'
 }
