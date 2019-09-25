@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<iammert.com.view.scalinglib.ScalingLayout xmlns:tools="http://schemas.android.com/tools"
+<iammert.com.view.scalinglib.ScalingLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scalingItemLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="8dp"
-    android:id="@+id/scalingItemLayout"
-    app:radiusFactor="1"
     app:layout_behavior="iammert.com.view.scalinglib.ScalingLayoutBehavior"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    app:radiusFactor="1">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -29,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/ic_launcher_background" />
+                app:srcCompat="@drawable/ic_loading" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -49,7 +48,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Some items" />
+                    android:text="FETCHING..." />
             </LinearLayout>
 
             <LinearLayout
@@ -70,7 +69,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Extremely long description" />
+                    android:text="FETCHING..." />
 
             </LinearLayout>
 
@@ -85,16 +84,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView"
-                    android:textStyle="bold"
-                    tools:text="Count: " />
+                    android:text="Count: "
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/itemCount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="1" />
+                    android:text="FETCHING..." />
 
                 <TextView
                     android:id="@+id/itemPriceLabel"
@@ -109,7 +107,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="100" />
+                    android:text="FETCHING..." />
             </LinearLayout>
 
             <LinearLayout
@@ -130,7 +128,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Alphebeta Minessota" />
+                    android:text="FETCHING..." />
             </LinearLayout>
 
             <com.dd.processbutton.iml.SubmitProcessButton

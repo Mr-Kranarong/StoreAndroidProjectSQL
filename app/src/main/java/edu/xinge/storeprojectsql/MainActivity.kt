@@ -2,14 +2,7 @@ package edu.xinge.storeprojectsql
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.gson.JsonObject
-import com.koushikdutta.async.future.FutureCallback
-import com.koushikdutta.ion.Ion
 import kotlinx.android.synthetic.main.activity_main.*
-import org.json.JSONArray
-import java.util.*
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,37 +10,28 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        loadMainItem()
-    }
+        replaceFragmenty(MarketFragment(),false,R.id.FragmentFrame)
 
-    fun loadMainItem(){
-        Ion.with(this)
-            .load(God.HOST)
-            .asJsonObject()
-            .setCallback(FutureCallback<JsonObject> { e, result ->
-                if(e != null){
-                    God.spellToast(this,e.message)
-                }
+        MarketDrawerButton.setOnClickListener {
+            duoNav.closeDrawer()
+            replaceFragmenty(MarketFragment(),false,R.id.FragmentFrame)
+            God.spellToast(this,"Implemented -- Functional")
+        }
+        YourStoreDrawerButton.setOnClickListener {
+            duoNav.closeDrawer()
+            replaceFragmenty(YourStoreFragment(),false,R.id.FragmentFrame)
+            God.spellToast(this,"Not yet implemented -- TODO")
+        }
+        TransactionDrawerButton.setOnClickListener {
+            duoNav.closeDrawer()
+            replaceFragmenty(TransactionFragment(),false,R.id.FragmentFrame)
+            God.spellToast(this,"Not yet implemented -- TODO")
+        }
+        CartDrawerButton.setOnClickListener {
+            duoNav.closeDrawer()
+            replaceFragmenty(CartFragment(),false,R.id.FragmentFrame)
+            God.spellToast(this,"Not yet implemented -- TODO")
+        }
 
-                val resulted: JSONArray = JSONArray(result.getAsJsonArray("ItemList").toString())
-                val itemModelArray = ArrayList<itemModel>()
-                for(i in 0 until(resulted.length())){
-                    val item = resulted.getJSONObject(i)
-
-                    val ItemID = item.getInt("ItemID")
-                    val Name = item.getString("Name")
-                    val Description = item.getString("Description")
-                    val Price = item.getInt("Price")
-                    val Count = item.getInt("Count")
-                    val Store = item.getString("Store")
-                    val PhotoURL = item.getString("PhotoURL")
-
-                    itemModelArray.add(itemModel(ItemID,Name,Description,Price,Count,Store,PhotoURL))
-                }
-
-                shimmerRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
-                shimmerRecycler.adapter = RecyclerviewAdapter(itemModelArray)
-                God.spellToast(this, "Load Market Items -- Finished")
-            })
     }
 }
