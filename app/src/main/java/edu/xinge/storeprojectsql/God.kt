@@ -7,6 +7,7 @@ import com.muddzdev.styleabletoast.StyleableToast
 object God {
 
     val HOST = "https://justdontdoit.000webhostapp.com"
+    private var authenKey : String ?= null
 
     fun spellToast(context: Context, text: String?=null){
         StyleableToast.makeText(context, text, Toast.LENGTH_LONG, R.style.mytoast).show();
