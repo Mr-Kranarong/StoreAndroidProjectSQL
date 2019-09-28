@@ -25,8 +25,8 @@ class MarketFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_market, container, false)
-        loadMainItem()
 
+        loadMainItem()
 
         return v
     }

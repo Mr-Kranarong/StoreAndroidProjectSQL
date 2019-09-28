@@ -37,10 +37,17 @@ class RegisterActivity : AppCompatActivity() {
                     God.spellToast(this,e.message)
                     registerSubmit.progress = -1
                 }
-                God.spellToast(this,result.toString())
-                registerSubmit.progress = 100
-                Timer().schedule(1000){
-                    finish()
+
+
+                if(result.toString() == "Account Registration -- Completed"){
+                    registerSubmit.progress = 100
+                    God.spellToast(this,"Account Registration Completed")
+                    Timer().schedule(1000){
+                        finish()
+                    }
+                }else{
+                    registerSubmit.progress = 0
+                    God.spellToast(this,result.toString())
                 }
             })
     }
