@@ -25,8 +25,8 @@ class MarketFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_market, container, false)
-        loadMainItem()
 
+        loadMainItem()
 
         return v
     }
@@ -40,7 +40,7 @@ class MarketFragment : Fragment() {
                     God.spellToast(activity!!.applicationContext,e.message)
                 }
 
-                val resulted: JSONArray = JSONArray(result.getAsJsonArray("ItemList").toString())
+                val resulted = JSONArray(result.getAsJsonArray("ItemList").toString())
                 val itemModelArray = ArrayList<itemModel>()
                 for(i in 0 until(resulted.length())){
                     val item = resulted.getJSONObject(i)

@@ -7,11 +7,25 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.koushikdutta.ion.Ion
+import kotlinx.android.synthetic.main.recycler_item_layout.view.*
 
 class RecyclerviewAdapter(val itemModelArray: ArrayList<itemModel>) : RecyclerView.Adapter<RecyclerviewAdapter.ViewHolder>() {
     //this method is returning the view for each item in the list
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerviewAdapter.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.recycler_item_layout, parent, false)
+
+        if(!God.isValid){
+            v.cartAddButton.visibility = View.INVISIBLE
+            v.cartAddButton.text = God.AuthKey
+        }else{
+            v.cartAddButton.visibility = View.VISIBLE
+            v.cartAddButton.text = God.AuthKey
+        }
+
+        v.cartAddButton.setOnClickListener{
+            God.spellToast(v.context,"ADDED")
+        }
+
         return ViewHolder(v)
     }
     //this method is binding the data on the list
@@ -43,5 +57,6 @@ class RecyclerviewAdapter(val itemModelArray: ArrayList<itemModel>) : RecyclerVi
                 .error(R.drawable.rect_error).animateIn(R.anim.fade_in)
                 .load(God.HOST+item.itemPhotoURL);
         }
+
     }
 }

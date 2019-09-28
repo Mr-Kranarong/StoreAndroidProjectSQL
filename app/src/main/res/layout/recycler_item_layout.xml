@@ -131,12 +131,16 @@
                     android:text="FETCHING..." />
             </LinearLayout>
 
-            <com.dd.processbutton.iml.SubmitProcessButton
+            <com.dd.processbutton.iml.ActionProcessButton
                 android:id="@+id/cartAddButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="10dp"
-                android:text="ADD TO CART" />
+                android:text="ADD TO CART"
+                android:textColor="@color/white"
+                android:visibility="invisible"
+                app:pb_colorNormal="@color/red"
+                app:pb_colorPressed="@color/dark_red" />
 
         </LinearLayout>
 
