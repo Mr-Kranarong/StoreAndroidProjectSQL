@@ -16,10 +16,10 @@ class RecyclerviewAdapter(val itemModelArray: ArrayList<itemModel>) : RecyclerVi
 
         if(!God.isValid){
             v.cartAddButton.visibility = View.INVISIBLE
-            v.cartAddButton.text = God.AuthKey
+            v.cartAddButton.text = "YOU ARENT SUPPOSED TO SEE THIS"
         }else{
             v.cartAddButton.visibility = View.VISIBLE
-            v.cartAddButton.text = God.AuthKey
+            v.cartAddButton.text = "ADD 1 TO CART"
         }
 
         v.cartAddButton.setOnClickListener{

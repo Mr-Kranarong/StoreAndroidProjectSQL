@@ -26,7 +26,10 @@ class MainActivity : AppCompatActivity() {
                 }
             }else{
                 //God.spellToast(this,"Valid Prefs")
-                //getting realtime userdata
+                //getting and updating realtime userdata
+                God.getDetailedUserInfo(this)
+                UserName.text = God.cacheFullName
+                Fund.text = "Fund: "+God.cacheFund
             }
 
             LogLabel.text = "Logout"
@@ -34,6 +37,8 @@ class MainActivity : AppCompatActivity() {
                 duoNav.closeDrawer()
                 getSharedPreferences(getString(R.string.shared_preferences_filename), Context.MODE_PRIVATE).edit().clear().commit()
                 God.sessionDestroy()
+                UserName.setText("Not Logged In")
+                Fund.setText("Fund: 0")
                 God.spellToast(this,"Logged Out Successfully")
                 Timer().schedule(1000){
                     startActivity(Intent(applicationContext, MainActivity::class.java))
@@ -43,6 +48,7 @@ class MainActivity : AppCompatActivity() {
             YourStoreDrawerButton.isVisible = true
             TransactionDrawerButton.isVisible = true
             CartDrawerButton.isVisible = true
+            ProfileDrawerButton.isVisible = true
         }else{
             LogLabel.text = "Login"
             LogDrawerButton.setOnClickListener {
@@ -53,11 +59,13 @@ class MainActivity : AppCompatActivity() {
             YourStoreDrawerButton.isVisible = false
             TransactionDrawerButton.isVisible = false
             CartDrawerButton.isVisible = false
+            ProfileDrawerButton.isVisible = false
         }
 
 
-        FragmentFrame.setBackgroundColor(resources.getColor(R.color.white))
+        //FragmentFrame.setBackgroundColor(resources.getColor(R.color.white))
         replaceFragmenty(MarketFragment(),false,R.id.FragmentFrame)
+        duoNav.openDrawer()
 
         MarketDrawerButton.setOnClickListener {
             duoNav.closeDrawer()
@@ -79,7 +87,14 @@ class MainActivity : AppCompatActivity() {
             replaceFragmenty(CartFragment(),false,R.id.FragmentFrame)
             God.spellToast(this,"Not yet implemented -- TODO")
         }
-
+        ProfileDrawerButton.setOnClickListener {
+            duoNav.closeDrawer()
+            intent = Intent(this,RegisterActivity::class.java)
+            intent.putExtra("UpdateInfo",true)
+            startActivity(intent)
+        }
 
     }
+
+
 }
