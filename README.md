@@ -8,3 +8,5 @@ This is real android project. Feel free to reuse.
 :white_check_mark: 09/27/2019 - Registration works.
 
 :white_check_mark: 09/28/2019 - Login, Session, & All Authentication Aspect is now functional.
+
+:white_check_mark: 09/28/2019 - Profile Info Edit & Fund Management is done.
