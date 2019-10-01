@@ -1,13 +1,19 @@
 package edu.xinge.storeprojectsql
 
+import android.app.AlertDialog
+import android.text.Html
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.koushikdutta.ion.Ion
 import kotlinx.android.synthetic.main.recycler_item_layout.view.*
+
 
 class RecyclerviewItemAdapter(val itemModelArray: ArrayList<itemModel>) : RecyclerView.Adapter<RecyclerviewItemAdapter.ViewHolder>() {
     //this method is returning the view for each item in the list
@@ -55,7 +61,36 @@ class RecyclerviewItemAdapter(val itemModelArray: ArrayList<itemModel>) : Recycl
             Ion.with(image)
                 .placeholder(R.drawable.rect_progress)
                 .error(R.drawable.rect_error).animateIn(R.anim.fade_in)
-                .load(God.HOST+item.itemPhotoURL);
+                .load(God.HOST+item.itemPhotoURL)
+
+            store.setOnClickListener {
+                val layout = LinearLayout(itemView.context)
+                layout.orientation = LinearLayout.VERTICAL
+
+                val ItemImage = ImageView(itemView.context)
+                Ion.with(ItemImage)
+                    .placeholder(R.drawable.rect_progress)
+                    .error(R.drawable.rect_error).animateIn(R.anim.fade_in)
+                    .load(God.HOST+item.storeImage)
+
+                val params = LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
+                params.topMargin = 50
+                params.bottomMargin = 50
+                params.gravity = Gravity.CENTER_HORIZONTAL
+                ItemImage.layoutParams = params
+
+                val ItemTextbox = TextView(itemView.context)
+                ItemTextbox.text = Html.fromHtml("<b>Description: </b>"+item.storeDescription)
+                ItemTextbox.layoutParams = params
+
+                layout.addView(ItemImage)
+                layout.addView(ItemTextbox)
+
+                val builder = AlertDialog.Builder(itemView.context).setTitle(item.itemStore)
+                builder.setView(layout)
+                builder.show()
+            }
+
         }
 
     }

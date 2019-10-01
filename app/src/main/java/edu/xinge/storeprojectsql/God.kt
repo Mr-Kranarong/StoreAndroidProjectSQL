@@ -17,6 +17,7 @@ object God {
     var CurrentUserID : String ?= null
     var AuthKey : String ?= null
     var isValid: Boolean = false
+    var hasStore: Boolean = false
 
     var cacheFullName: String ?= null
     var cacheEmail: String ?= null
@@ -48,6 +49,8 @@ object God {
             isValid = true
         }
 
+        hasStore = hasStore(context)
+
         return isValid
     }
 
@@ -55,6 +58,7 @@ object God {
         CurrentUserID = ""
         AuthKey = ""
         isValid = false
+        hasStore = false
     }
 
     fun hasStore(context: Context):Boolean{

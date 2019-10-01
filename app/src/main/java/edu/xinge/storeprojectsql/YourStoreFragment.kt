@@ -27,9 +27,9 @@ class YourStoreFragment : Fragment() {
 
         v.imageView.setOnClickListener { pickImageFromGallery() }
 
-        if(God.hasStore(v.context)){
+        if(God.hasStore){
             God.spellToast(activity!!.applicationContext,"Store PAGE")
-        }else if(!God.hasStore(v.context)){
+        }else if(!God.hasStore){
             God.spellToast(activity!!.applicationContext,"Store DOESNT Exist")
         }
         //God.spellToast(v.context,hasStore.toString())

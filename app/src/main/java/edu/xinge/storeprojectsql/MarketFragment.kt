@@ -54,8 +54,10 @@ class MarketFragment : Fragment() {
                     val Count = item.getInt("Count")
                     val Store = item.getString("Store")
                     val PhotoURL = item.getString("PhotoURL")
+                    var StoreDesc = item.getString("StoreDescription")
+                    var StoreImage = item.getString("StoreImage")
 
-                    itemModelArray.add(itemModel(ItemID,Name,Description,Count,Price,Store,PhotoURL))
+                    itemModelArray.add(itemModel(ItemID,Name,Description,Count,Price,Store,PhotoURL,StoreDesc,StoreImage))
                 }
 
                 shimmerRecycler.layoutManager = LinearLayoutManager(activity!!.applicationContext, LinearLayoutManager.VERTICAL,false)
