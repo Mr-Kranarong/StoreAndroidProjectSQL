@@ -52,9 +52,9 @@ class MainActivity : AppCompatActivity() {
         }else{
             LogLabel.text = "Login"
             LogDrawerButton.setOnClickListener {
-                duoNav.closeDrawer()
                 intent = Intent(this,LoginActivity::class.java)
                 startActivity(intent)
+                duoNav.closeDrawer()
             }
             YourStoreDrawerButton.isVisible = false
             TransactionDrawerButton.isVisible = false
@@ -75,12 +75,12 @@ class MainActivity : AppCompatActivity() {
         YourStoreDrawerButton.setOnClickListener {
             duoNav.closeDrawer()
             replaceFragmenty(YourStoreFragment(),false,R.id.FragmentFrame)
-            God.spellToast(this,"Not yet implemented -- TODO")
+            //God.spellToast(this,"Not yet implemented -- TODO")
         }
         TransactionDrawerButton.setOnClickListener {
             duoNav.closeDrawer()
             replaceFragmenty(TransactionFragment(),false,R.id.FragmentFrame)
-            God.spellToast(this,"Not yet implemented -- TODO")
+            //God.spellToast(this,"Not yet implemented -- TODO")
         }
         CartDrawerButton.setOnClickListener {
             duoNav.closeDrawer()

@@ -57,6 +57,26 @@ object God {
         isValid = false
     }
 
+    fun hasStore(context: Context):Boolean{
+        var Returnee = false
+        Ion.with(context)
+            .load(HOST+"/quickCheck.php?hasStore")
+            .setBodyParameter( "OwnerID", CurrentUserID)
+            .asString()
+            .setCallback(FutureCallback<String> { e, result ->
+                if(e != null){
+                    spellToast(context,e.message)
+                }else{
+                    if(result.toString().contains("NO")){
+                        Returnee = false
+                    }else if(result.toString().contains("YES")){
+                        Returnee = true
+                    }
+                }
+            }).get()
+        return Returnee
+    }
+
     fun getDetailedUserInfo(context: Context){
         Ion.with(context)
             .load(HOST+"/cacheUserInfo.php")

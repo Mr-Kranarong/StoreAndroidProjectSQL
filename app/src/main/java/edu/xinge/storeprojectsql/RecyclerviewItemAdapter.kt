@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.koushikdutta.ion.Ion
 import kotlinx.android.synthetic.main.recycler_item_layout.view.*
 
-class RecyclerviewAdapter(val itemModelArray: ArrayList<itemModel>) : RecyclerView.Adapter<RecyclerviewAdapter.ViewHolder>() {
+class RecyclerviewItemAdapter(val itemModelArray: ArrayList<itemModel>) : RecyclerView.Adapter<RecyclerviewItemAdapter.ViewHolder>() {
     //this method is returning the view for each item in the list
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerviewAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerviewItemAdapter.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.recycler_item_layout, parent, false)
 
         if(!God.isValid){
@@ -29,7 +29,7 @@ class RecyclerviewAdapter(val itemModelArray: ArrayList<itemModel>) : RecyclerVi
         return ViewHolder(v)
     }
     //this method is binding the data on the list
-    override fun onBindViewHolder(holder: RecyclerviewAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerviewItemAdapter.ViewHolder, position: Int) {
         holder.bindItems(itemModelArray[position])
     }
     //this method is giving the size of the list

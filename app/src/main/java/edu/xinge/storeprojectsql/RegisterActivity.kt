@@ -118,7 +118,7 @@ class RegisterActivity : AppCompatActivity() {
                         registerSubmit.progress = 0
                         God.spellToast(this,result.toString())
                     }
-                })
+                }).tryGet()
         }
 
     }
