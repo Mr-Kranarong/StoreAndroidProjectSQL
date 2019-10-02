@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.dd.processbutton.iml.ActionProcessButton
 import com.koushikdutta.ion.Ion
 import kotlinx.android.synthetic.main.recycler_item_layout.view.*
 
@@ -25,11 +26,7 @@ class RecyclerviewItemAdapter(val itemModelArray: ArrayList<itemModel>) : Recycl
             v.cartAddButton.text = "YOU ARENT SUPPOSED TO SEE THIS"
         }else{
             v.cartAddButton.visibility = View.VISIBLE
-            v.cartAddButton.text = "ADD 1 TO CART"
-        }
-
-        v.cartAddButton.setOnClickListener{
-            God.spellToast(v.context,"ADDED")
+            v.cartAddButton.text = "ADD TO CART"
         }
 
         return ViewHolder(v)
@@ -51,6 +48,7 @@ class RecyclerviewItemAdapter(val itemModelArray: ArrayList<itemModel>) : Recycl
             val price = itemView.findViewById(R.id.itemPrice)  as TextView
             val store = itemView.findViewById(R.id.itemStore)  as TextView
             val image = itemView.findViewById(R.id.itemImage) as ImageView
+            val cartAdd = itemView.findViewById(R.id.cartAddButton) as ActionProcessButton
 //            val youtubeid = itemView.findViewById(R.id.youtubeText)  as TextView
 //            val itempic = itemView.findViewById(R.id.itemPic)  as ImageView
             name.text = item.ItemName
@@ -89,6 +87,10 @@ class RecyclerviewItemAdapter(val itemModelArray: ArrayList<itemModel>) : Recycl
                 val builder = AlertDialog.Builder(itemView.context).setTitle(item.itemStore)
                 builder.setView(layout)
                 builder.show()
+            }
+
+            cartAdd.setOnClickListener{
+                God.getCountDialog(itemView.context, item.itemID.toString())
             }
 
         }

@@ -1,13 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CartFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="15dp"
+    tools:context=".MainActivity">
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal">
+
+        <com.dd.processbutton.iml.ActionProcessButton
+            android:id="@+id/clearButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="Clear Cart"
+            android:textColor="@color/white"
+            app:pb_colorComplete="@color/green"
+            app:pb_colorNormal="@color/red"
+            app:pb_colorPressed="@color/dark_red"
+            app:pb_textComplete="Cart Cleared"
+            app:pb_textError="Clear Failed"
+            app:pb_textProgress="Clearing..."/>
+
+        <com.dd.processbutton.iml.ActionProcessButton
+            android:id="@+id/checkoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="Checkout"
+            android:textColor="@color/white"
+            app:pb_colorComplete="@color/green"
+            app:pb_colorNormal="@color/red"
+            app:pb_colorPressed="@color/dark_red"
+            app:pb_textComplete="Done"
+            app:pb_textError="Error"
+            app:pb_textProgress="Executing..."/>
+    </LinearLayout>
+
+    <com.cooltechworks.views.shimmer.ShimmerRecyclerView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/shimmerRecycler3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        app:shimmer_demo_layout="@layout/recycler_cart_layout" />
+</LinearLayout>

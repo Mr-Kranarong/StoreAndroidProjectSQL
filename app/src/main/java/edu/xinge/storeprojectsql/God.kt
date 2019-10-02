@@ -25,9 +25,6 @@ object God {
     var cachePassword: String ?= null
     var cacheFund: String ?= null
 
-
-
-
     fun spellToast(context: Context, text: String?=null){
         StyleableToast.makeText(context, text, Toast.LENGTH_LONG, R.style.mytoast).show();
     }
@@ -100,7 +97,7 @@ object God {
                 cachePassword= selectedUser.getString("Password")
                 cacheFund= selectedUser.getString("Fund")
 
-                spellToast(context, "UserDetailRefresh -- Finished")
+                spellToast(context, "User Details Refresh -- Finished")
             }).get()
     }
 
@@ -143,6 +140,36 @@ object God {
                 }).get()
         }).create()
         builder.show()
+    }
+
+    fun getCountDialog(context: Context, itemID:String, itemOption: String = "", confirmText: String = "ADD TO CART"){
+        val InputTextbox = EditText(context)
+        InputTextbox.inputType = InputType.TYPE_CLASS_NUMBER
+
+        val builder = AlertDialog.Builder(context).setTitle("How many items you want?")
+        builder.setView(InputTextbox)
+            .setPositiveButton(confirmText, { _,_->
+                Ion.with(context)
+                    .load(HOST+"/cart.php"+itemOption)
+                    .setBodyParameter( "OwnerID", CurrentUserID)
+                    .setBodyParameter("ItemID", itemID)
+                    .setBodyParameter( "Count",InputTextbox.text.toString())
+                    .asString()
+                    .setCallback(FutureCallback<String> { e, result ->
+                        if(e != null){
+                            spellToast(context,e.message)
+                        }else{
+                            if(result.toString().contains("ERROR")){
+                                spellToast(context,"Invalid Request - Contact Administrator")
+                            }else{
+                                spellToast(context,result.toString())
+                            }
+                        }
+                    }).get()
+            })
+            .setNegativeButton("CANCEL", { _, _ ->
+
+            }).show()
     }
 
 }

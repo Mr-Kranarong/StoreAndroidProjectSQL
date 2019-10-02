@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
         MarketDrawerButton.setOnClickListener {
             duoNav.closeDrawer()
             replaceFragmenty(MarketFragment(),false,R.id.FragmentFrame)
-            God.spellToast(this,"Implemented -- Partially")
+            //God.spellToast(this,"Implemented -- Partially")
         }
         YourStoreDrawerButton.setOnClickListener {
             duoNav.closeDrawer()
