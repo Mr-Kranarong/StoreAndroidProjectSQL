@@ -1,20 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".YourStoreFragment">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher" />
+        android:id="@+id/storeImg"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/duo_shape_rectangled_red" />
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/storeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:editable="false"
+                android:enabled="false"
+                android:focusable="false"
+                android:hint="Store Name"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.dd.processbutton.iml.ActionProcessButton
+            android:id="@+id/storeEdit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="Edit"
+            android:textColor="@color/white"
+            app:pb_colorComplete="@color/green"
+            app:pb_colorNormal="@color/red"
+            app:pb_colorPressed="@color/dark_red"
+            app:pb_textComplete="Done"
+            app:pb_textError="Error"
+            app:pb_textProgress="Processing..." />
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/storeDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:editable="false"
+            android:enabled="false"
+            android:focusable="false"
+            android:gravity="top"
+            android:hint="Store Description"
+            android:lines="3"
+            android:singleLine="false" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <me.grantland.widget.AutofitTextView
+            android:id="@+id/ItemListLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="2"
+            android:text="ItemList"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <com.dd.processbutton.iml.ActionProcessButton
+            android:id="@+id/itemAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Add Item"
+            android:textColor="@color/white"
+            app:pb_colorNormal="@color/red"
+            app:pb_colorPressed="@color/dark_red"
+            app:pb_colorComplete="@color/green"
+            app:pb_textProgress="Processing..."
+            app:pb_textComplete="Done"
+            app:pb_textError="Error"/>
+    </LinearLayout>
+
+    <com.cooltechworks.views.shimmer.ShimmerRecyclerView
+        android:id="@+id/shimmerRecycler4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:shimmer_demo_layout="@layout/recycler_list_layout" />
+</LinearLayout>

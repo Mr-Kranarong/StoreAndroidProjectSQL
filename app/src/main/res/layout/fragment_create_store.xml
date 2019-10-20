@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="25dp"
+    tools:context=".CreateStoreFragment">
+
+    <TextView
+        android:id="@+id/imagePath"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp" />
+
+    <ImageView
+        android:id="@+id/storeImage"
+        android:layout_width="match_parent"
+        android:layout_height="325dp"
+        android:src="@mipmap/ic_launcher"
+        app:srcCompat="@drawable/ic_upload" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/storeNameBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Store Name" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/storeDescriptionBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:hint="Store Description"
+            android:lines="8"
+            android:maxLines="8"
+            android:singleLine="false" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.dd.processbutton.iml.ActionProcessButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/CreateSubmit"
+        android:textColor="@color/white"
+        app:pb_colorNormal="@color/red"
+        app:pb_colorPressed="@color/dark_red"
+        app:pb_colorComplete="@color/green"
+        app:pb_textProgress="Creating Store..."
+        app:pb_textComplete="Your store has been created"
+        app:pb_textError="Failed to create store"
+        android:text="Create Store"/>
+
+</LinearLayout>

@@ -56,8 +56,6 @@ class RecyclerviewCartAdapter(val cartModelArray: ArrayList<cartModel>) : Recycl
             val total = itemView.findViewById(R.id.Total)  as TextView
             val changeCount = itemView.findViewById(R.id.changeCountButton) as ActionProcessButton
             val removeItem = itemView.findViewById(R.id.removeFromCartButton) as ActionProcessButton
-//            val youtubeid = itemView.findViewById(R.id.youtubeText)  as TextView
-//            val itempic = itemView.findViewById(R.id.itemPic)  as ImageView
 
             name.text = cart.ItemName
             description.text = cart.ItemDescription
@@ -78,29 +76,6 @@ class RecyclerviewCartAdapter(val cartModelArray: ArrayList<cartModel>) : Recycl
                 builder.show()
             }
             changeCount.setOnClickListener {
-//                God.getCountDialog(itemView.context,cart.ItemID.toString(),"?UPDATE", "UPDATE CART")
-//                Ion.with(itemView.context)
-//                    .load(God.HOST+"/cart.php?checkCount")
-//                    .setBodyParameter( "OwnerID", God.CurrentUserID)
-//                    .setBodyParameter("ItemID", cart.ItemID.toString())
-//                    .asString()
-//                    .setCallback(FutureCallback<String> { e, result ->
-//                        if(e != null){
-//                            God.spellToast(itemView.context,e.message)
-//                        }else{
-//                            if(result.toString().contains("ERROR")){
-//                                God.spellToast(itemView.context,"Invalid Request - Contact Administrator")
-//                            }else{
-//                                //God.spellToast(itemView.context,result.toString())
-//                                count.text = result.toString()
-//                                total.text = (result.toString().toInt()*cart.ItemPrice).toString()
-//                            }
-//                        }
-//                    }).get()
-//                Timer().schedule(1000){
-//                    itemView.context.startActivity(Intent(itemView.context, MainActivity::class.java))
-//                    (itemView.context as Activity).finishAffinity()
-//                }
                 changeCount.progress = 1
 
                 val InputTextbox = EditText(itemView.context)

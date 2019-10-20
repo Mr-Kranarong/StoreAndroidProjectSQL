@@ -70,22 +70,23 @@ class MainActivity : AppCompatActivity() {
         MarketDrawerButton.setOnClickListener {
             duoNav.closeDrawer()
             replaceFragmenty(MarketFragment(),false,R.id.FragmentFrame)
-            //God.spellToast(this,"Implemented -- Partially")
         }
         YourStoreDrawerButton.setOnClickListener {
             duoNav.closeDrawer()
-            replaceFragmenty(YourStoreFragment(),false,R.id.FragmentFrame)
             //God.spellToast(this,"Not yet implemented -- TODO")
+            if(God.hasStore){
+                replaceFragmenty(YourStoreFragment(),false,R.id.FragmentFrame)
+            }else if(!God.hasStore){
+                replaceFragmenty(CreateStoreFragment(),false,R.id.FragmentFrame)
+            }
         }
         TransactionDrawerButton.setOnClickListener {
             duoNav.closeDrawer()
             replaceFragmenty(TransactionFragment(),false,R.id.FragmentFrame)
-            //God.spellToast(this,"Not yet implemented -- TODO")
         }
         CartDrawerButton.setOnClickListener {
             duoNav.closeDrawer()
             replaceFragmenty(CartFragment(),false,R.id.FragmentFrame)
-            God.spellToast(this,"Not yet implemented -- TODO")
         }
         ProfileDrawerButton.setOnClickListener {
             duoNav.closeDrawer()

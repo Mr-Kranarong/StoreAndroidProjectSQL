@@ -12,18 +12,6 @@ class RecyclerviewRecordAdapter(val recordModelArray: ArrayList<recordModel>) : 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerviewRecordAdapter.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.recycler_transaction_layout, parent, false)
 
-//        if(!God.isValid){
-//            v.cartAddButton.visibility = View.INVISIBLE
-//            v.cartAddButton.text = "YOU ARENT SUPPOSED TO SEE THIS"
-//        }else{
-//            v.cartAddButton.visibility = View.VISIBLE
-//            v.cartAddButton.text = "ADD 1 TO CART"
-//        }
-//
-//        v.cartAddButton.setOnClickListener{
-//            God.spellToast(v.context,"ADDED")
-//        }
-
         return ViewHolder(v)
     }
     //this method is binding the data on the list
