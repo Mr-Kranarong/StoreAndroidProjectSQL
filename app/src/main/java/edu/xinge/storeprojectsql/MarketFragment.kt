@@ -26,14 +26,16 @@ class MarketFragment : Fragment() {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_market, container, false)
 
-        loadMainItem()
+        if(God.isValid){
+            loadMainItem(God.CurrentUserID)
+        }else{loadMainItem()}
 
         return v
     }
 
-    fun loadMainItem(){
+    fun loadMainItem(str:String ?= ""){
         Ion.with(this)
-            .load(God.HOST)
+            .load(God.HOST).setBodyParameter("OwnerID",str)
             .asJsonObject()
             .setCallback(FutureCallback<JsonObject> { e, result ->
                 if(e != null){
@@ -52,14 +54,16 @@ class MarketFragment : Fragment() {
                     val Count = item.getInt("Count")
                     val Store = item.getString("Store")
                     val PhotoURL = item.getString("PhotoURL")
+                    var StoreDesc = item.getString("StoreDescription")
+                    var StoreImage = item.getString("StoreImage")
 
-                    itemModelArray.add(itemModel(ItemID,Name,Description,Count,Price,Store,PhotoURL))
+                    itemModelArray.add(itemModel(ItemID,Name,Description,Count,Price,Store,PhotoURL,StoreDesc,StoreImage))
                 }
 
                 shimmerRecycler.layoutManager = LinearLayoutManager(activity!!.applicationContext, LinearLayoutManager.VERTICAL,false)
-                shimmerRecycler.adapter = RecyclerviewAdapter(itemModelArray)
+                shimmerRecycler.adapter = RecyclerviewItemAdapter(itemModelArray)
                 God.spellToast(activity!!.applicationContext, "Load Market Items -- Finished")
-            })
+            }).tryGet()
     }
 
 }

@@ -54,8 +54,9 @@ class LoginActivity : AppCompatActivity() {
                     God.spellToast(this,Key)
                     LoginSubmit.progress = 0
                 }
-            })
+            }).tryGet()
 
 
     }
+
 }

@@ -17,15 +17,13 @@ object God {
     var CurrentUserID : String ?= null
     var AuthKey : String ?= null
     var isValid: Boolean = false
+    var hasStore: Boolean = false
 
     var cacheFullName: String ?= null
     var cacheEmail: String ?= null
     var cacheAddress: String ?= null
     var cachePassword: String ?= null
     var cacheFund: String ?= null
-
-
-
 
     fun spellToast(context: Context, text: String?=null){
         StyleableToast.makeText(context, text, Toast.LENGTH_LONG, R.style.mytoast).show();
@@ -48,6 +46,8 @@ object God {
             isValid = true
         }
 
+        hasStore = hasStore(context)
+
         return isValid
     }
 
@@ -55,6 +55,27 @@ object God {
         CurrentUserID = ""
         AuthKey = ""
         isValid = false
+        hasStore = false
+    }
+
+    fun hasStore(context: Context):Boolean{
+        var Returnee = false
+        Ion.with(context)
+            .load(HOST+"/quickCheck.php?hasStore")
+            .setBodyParameter( "OwnerID", CurrentUserID)
+            .asString()
+            .setCallback(FutureCallback<String> { e, result ->
+                if(e != null){
+                    spellToast(context,e.message)
+                }else{
+                    if(result.toString().contains("NO")){
+                        Returnee = false
+                    }else if(result.toString().contains("YES")){
+                        Returnee = true
+                    }
+                }
+            }).get()
+        return Returnee
     }
 
     fun getDetailedUserInfo(context: Context){
@@ -76,7 +97,7 @@ object God {
                 cachePassword= selectedUser.getString("Password")
                 cacheFund= selectedUser.getString("Fund")
 
-                spellToast(context, "UserDetailRefresh -- Finished")
+                spellToast(context, "User Details Refresh -- Finished")
             }).get()
     }
 
@@ -119,6 +140,36 @@ object God {
                 }).get()
         }).create()
         builder.show()
+    }
+
+    fun getCountDialog(context: Context, itemID:String, itemOption: String = "", confirmText: String = "ADD TO CART"){
+        val InputTextbox = EditText(context)
+        InputTextbox.inputType = InputType.TYPE_CLASS_NUMBER
+
+        val builder = AlertDialog.Builder(context).setTitle("How many items you want?")
+        builder.setView(InputTextbox)
+            .setPositiveButton(confirmText, { _,_->
+                Ion.with(context)
+                    .load(HOST+"/cart.php"+itemOption)
+                    .setBodyParameter( "OwnerID", CurrentUserID)
+                    .setBodyParameter("ItemID", itemID)
+                    .setBodyParameter( "Count",InputTextbox.text.toString())
+                    .asString()
+                    .setCallback(FutureCallback<String> { e, result ->
+                        if(e != null){
+                            spellToast(context,e.message)
+                        }else{
+                            if(result.toString().contains("ERROR")){
+                                spellToast(context,"Invalid Request - Contact Administrator")
+                            }else{
+                                spellToast(context,result.toString())
+                            }
+                        }
+                    }).get()
+            })
+            .setNegativeButton("CANCEL", { _, _ ->
+
+            }).show()
     }
 
 }

@@ -128,19 +128,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="FETCHING..." />
+                    android:shadowColor="#00BCD4"
+                    android:text="FETCHING..."
+                    android:textColor="#3F51B5" />
             </LinearLayout>
 
             <com.dd.processbutton.iml.ActionProcessButton
                 android:id="@+id/cartAddButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
                 android:padding="10dp"
                 android:text="ADD TO CART"
                 android:textColor="@color/white"
                 android:visibility="invisible"
+                app:pb_colorComplete="@color/green"
                 app:pb_colorNormal="@color/red"
-                app:pb_colorPressed="@color/dark_red" />
+                app:pb_colorPressed="@color/dark_red"
+                app:pb_textComplete="Done"
+                app:pb_textError="Error"
+                app:pb_textProgress="Adding..." />
 
         </LinearLayout>
 

@@ -44,4 +44,5 @@ dependencies {
     implementation 'com.github.iammert:ScalingLayout:1.2.1'
     implementation 'me.grantland:autofittextview:0.2.1'
     implementation 'nl.psdcompany:duo-navigation-drawer:3.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
 }
