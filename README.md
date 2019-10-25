@@ -1,5 +1,5 @@
 # StoreProjectSQL
-This is real android project. Feel free to reuse.
+This is my real crappy android project, expect nothing.
 
 :white_check_mark: 09/25/2019 - Load item in main menu.
 
@@ -19,3 +19,4 @@ This is real android project. Feel free to reuse.
   <td><img src="https://raw.githubusercontent.com/Mr-Kranarong/StoreProjectSQL/master/pic2.jpg"/></td>
 </tr>
 </table>
+*Font not included.
