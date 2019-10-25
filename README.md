@@ -15,7 +15,7 @@ This is real android project. Feel free to reuse.
 
 <table>
 <tr>
-  <td>![alt text](https://raw.githubusercontent.com/Mr-Kranarong/StoreProjectSQL/master/pic1.jpg)</td>
-  <td>![alt text](https://raw.githubusercontent.com/Mr-Kranarong/StoreProjectSQL/master/pic2.jpg)</td>
+  <td><img src="https://raw.githubusercontent.com/Mr-Kranarong/StoreProjectSQL/master/pic1.jpg"/></td>
+  <td><img src="https://raw.githubusercontent.com/Mr-Kranarong/StoreProjectSQL/master/pic2.jpg"/></td>
 </tr>
 </table>
