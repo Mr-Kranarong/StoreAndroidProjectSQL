@@ -14,7 +14,7 @@ This is my real crappy android project, expect nothing.
 :white_check_mark: 10/21/2019 - Everything is working, the project is done.
 
 <table>
-  <tr><td colspan="2">Features & Craps</td></tr>
+  <tr><td colspan="2"><b>Features & Craps</b></td></tr>
 <tr>
   <td>Market Page</td>
   <td>- Show all items with count more than 0 & will not show your own listed items.<br>
@@ -64,10 +64,10 @@ This is my real crappy android project, expect nothing.
 </table>
 
 <table>
-  <tr><td colspan="2">Preview Images</td></tr>
+  <tr><td colspan="2"><b>Preview Images</b></td></tr>
 <tr>
   <td><img src="https://raw.githubusercontent.com/Mr-Kranarong/StoreProjectSQL/master/pic1.jpg"/></td>
   <td><img src="https://raw.githubusercontent.com/Mr-Kranarong/StoreProjectSQL/master/pic2.jpg"/></td>
 </tr>
 </table>
-*Font not included.
+<i>*Font not included.</i>
