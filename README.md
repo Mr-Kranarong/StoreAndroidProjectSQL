@@ -58,7 +58,8 @@ This is my real crappy android project, expect nothing.
 <tr>
   <td>Backend Functionality</td>
   <td>- PHP will replace picture name with 100 lengths long string will prevent overlapping before upload, store image url in sql.<br>
-    - Using share-preferences to store AUTH-KEY come from randomly generated string from login which has been added to AUTHEN sql table. In this way, new session of same user will destroy the old one.
+    - Using share-preferences to store AUTH-KEY come from randomly generated string from login which has been added to AUTHEN sql table. In this way, new session of same user will destroy the old one.<br>
+    - Users who are not logged in will only see Market & Login page. Add to Cart button will be hidden.
   </td>
 </tr>
 </table>
