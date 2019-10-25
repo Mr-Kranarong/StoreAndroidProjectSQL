@@ -12,3 +12,6 @@ This is real android project. Feel free to reuse.
 :white_check_mark: 09/29/2019 - Profile Info Edit & Fund Management is done.
 
 :white_check_mark: 10/21/2019 - Everything is working, the project is done.
+
+![alt text](https://raw.githubusercontent.com/Mr-Kranarong/StoreProjectSQL/master/pic1.jpg)
+![alt text](https://raw.githubusercontent.com/Mr-Kranarong/StoreProjectSQL/master/pic2.jpg)
