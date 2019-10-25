@@ -13,5 +13,9 @@ This is real android project. Feel free to reuse.
 
 :white_check_mark: 10/21/2019 - Everything is working, the project is done.
 
-![alt text](https://raw.githubusercontent.com/Mr-Kranarong/StoreProjectSQL/master/pic1.jpg)
-![alt text](https://raw.githubusercontent.com/Mr-Kranarong/StoreProjectSQL/master/pic2.jpg)
+<table>
+<tr>
+  <td>![alt text](https://raw.githubusercontent.com/Mr-Kranarong/StoreProjectSQL/master/pic1.jpg)</td>
+  <td>![alt text](https://raw.githubusercontent.com/Mr-Kranarong/StoreProjectSQL/master/pic2.jpg)</td>
+</tr>
+</table>
