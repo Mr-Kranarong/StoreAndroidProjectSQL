@@ -1,5 +1,6 @@
 # StoreAndroidProjectSQL
-This is my real crappy android project, expect nothing.
+
+THIS PROJECT IS DEPRECATED SINCE DISCONTINUATION OF KOTLIN SYNTHETIC.
 
 :white_check_mark: 09/25/2019 - Load item in main menu.
 
